@@ -15,6 +15,7 @@
     </router-link>
     <ul>
       <li><i class="fas fa-plus"></i> New list</li>
+  
     </ul>
   </div>
 </template>
