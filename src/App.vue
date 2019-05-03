@@ -1,19 +1,27 @@
 <template>
   <div id="app">
-    <nav>
+    <nav >
       <Sidenav/>
     </nav>
 
     <router-view/>
+
   </div>
 </template>
 
 <script>
 import Sidenav from "./components/layout/Sidenav";
+import DetailsForm from "./components/layout/DetailsForm";
 export default {
   name: "app",
   components: {
-    Sidenav
+    Sidenav,
+    DetailsForm
+  }, 
+  methods: {
+    fetchTodos(name){
+      console.log(name)
+    },
   }
 };
 </script>
@@ -53,4 +61,24 @@ body {
 nav {
   width: 15%;
 }
+
+
+ul {
+  list-style: none;
+  border-top: 1px solid #ccc;
+}
+li {
+  padding: 1rem;
+}
+a {
+  display: block;
+  text-decoration: none;
+  padding: 1rem;
+  color: #000;
+}
+.far,
+.fas {
+  padding-right: 0.5rem;
+}
+
 </style>

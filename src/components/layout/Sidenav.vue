@@ -1,5 +1,5 @@
 <template>
-  <div class="side-nav">
+  <div class="side-nav" v-on:fetch-todos="fetchTodos">
     <h3>TodoList</h3>
     <router-link to="/">
       <i class="fas fa-sun"></i> My Day <span class="badge-count">4</span>
@@ -13,16 +13,28 @@
     <router-link to="/tasks">
       <i class="fas fa-tasks"></i> Tasks
     </router-link>
-    <ul>
-      <li><i class="fas fa-plus"></i> New list</li>
-  
-    </ul>
+    
+    <TodoLists />
+   
   </div>
 </template>
 
 <script>
+// get the todos here
+import TodoLists from "../../components/TodoLists";
+
+
 export default {
-  name: "Sidenav"
+  name: "Sidenav",
+  components: {
+    TodoLists,
+    
+  },
+  methods: {
+    fetchTodos(name){
+      console.log(name)
+    },
+  }
 };
 </script>
 
@@ -37,23 +49,8 @@ h3 {
   height: 100vh;
 }
 
-
-ul {
-  list-style: none;
-  border-top: 1px solid #ccc;
-}
-li {
-  padding: 1rem;
-}
-a {
-  display: block;
-  text-decoration: none;
-  padding: 1rem;
-  color: #000;
-}
 .far,
 .fas {
-  padding-right: 0.5rem;
   color: #2196F3;
 }
 
